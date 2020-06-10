@@ -9,6 +9,25 @@ public class Main {
 	 * a + b의 합을 구하여라.
 	 */
 	public static int solve(String q) {
+		int min = -1, max = Integer.MAX_VALUE; // int max는 넘어가지 않으리라 가정
+		int minPos, maxPos;
+		
+		int pos = 0;
+		int now = 0;
+		
+		for (char c : q.toCharArray()) {
+			if (c >= '0' && c <= '9') {
+				// 숫자일 경우
+				now = 10 * now + ('c' - '0');
+				
+			} else {
+				// 아닐 경우 기존까지 구한 숫자 처리
+				
+				// 새 숫자 시작
+				pos++;
+			}
+		}
+		
 		return 0;
 	}
 	
