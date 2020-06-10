@@ -9,26 +9,51 @@ public class Main {
 	 * a + b의 합을 구하여라.
 	 */
 	public static int solve(String q) {
-		int min = -1, max = Integer.MAX_VALUE; // int max는 넘어가지 않으리라 가정
-		int minPos, maxPos;
+		int min = Integer.MAX_VALUE, max = -1; // int max는 넘어가지 않으리라 가정
+		int minPos = 0, maxPos = 0;
 		
-		int pos = 0;
+		int pos = 1; // 0번째부터 시작
 		int now = 0;
+		boolean wasNum = false; // 방금 전이 숫자였는지 여부
 		
 		for (char c : q.toCharArray()) {
 			if (c >= '0' && c <= '9') {
 				// 숫자일 경우
-				now = 10 * now + ('c' - '0');
+				if (!wasNum) {
+					wasNum = true;
+					
+				}
+				now = 10 * now + (c - '0');
 				
 			} else {
-				// 아닐 경우 기존까지 구한 숫자 처리
-				
-				// 새 숫자 시작
-				pos++;
+				// 문자일 경우
+				if (wasNum) {
+					// 숫자에서 문자로 넘어왔을 경우
+					// 기존까지 구한 숫자 처리
+					System.out.println(pos + "번째는 " + now);
+					System.out.println(now + " < " + min + " ??");
+					if (now < min) {
+						System.out.println("min");
+						min = now;
+						minPos = pos;
+					}
+					if (now > max) { // 최초일 경우(유일할 경우) min/max 둘 다 해야 하므로 else if로 안 함
+						System.out.println("max");
+						max = now;
+						maxPos = pos;
+					}
+					
+					// 새 숫자 시작
+					wasNum = false;
+					now = 0;
+					pos++;
+				}
 			}
 		}
 		
-		return 0;
+		// 마지막이 숫자로 끝날 경우 처리 필요
+		
+		return minPos + maxPos;
 	}
 	
 	public static void main(String[] args) {
