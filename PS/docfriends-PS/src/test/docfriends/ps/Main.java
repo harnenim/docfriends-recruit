@@ -16,7 +16,8 @@ public class Main {
 		int now = 0;
 		boolean wasNum = false; // 방금 전이 숫자였는지 여부
 		
-		for (char c : q.toCharArray()) {
+		// 마지막이 숫자로 끝날 경우 처리를 위해, 뒤에 문자 하나 붙임
+		for (char c : (q + "z").toCharArray()) {
 			if (c >= '0' && c <= '9') {
 				// 숫자일 경우
 				if (!wasNum) {
@@ -30,15 +31,11 @@ public class Main {
 				if (wasNum) {
 					// 숫자에서 문자로 넘어왔을 경우
 					// 기존까지 구한 숫자 처리
-					System.out.println(pos + "번째는 " + now);
-					System.out.println(now + " < " + min + " ??");
 					if (now < min) {
-						System.out.println("min");
 						min = now;
 						minPos = pos;
 					}
 					if (now > max) { // 최초일 경우(유일할 경우) min/max 둘 다 해야 하므로 else if로 안 함
-						System.out.println("max");
 						max = now;
 						maxPos = pos;
 					}
@@ -51,13 +48,12 @@ public class Main {
 			}
 		}
 		
-		// 마지막이 숫자로 끝날 경우 처리 필요
-		
 		return minPos + maxPos;
 	}
 	
 	public static void main(String[] args) {
 		String q = "ab23c4d56e78f9g12h34i5j12k45l67n89m99o1k123p456q567r768s890t67u456v345w234x23y239z";
+//		String q = "ab23c4d56e78f9g12h34i5j12k45l67n89m99o1k123p456q567r768s890";
 		int output = solve(q);
 		System.out.println(output);
 	}
