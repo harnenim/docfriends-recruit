@@ -12,7 +12,7 @@ public class Main {
 		int min = Integer.MAX_VALUE, max = -1; // int max는 넘어가지 않으리라 가정
 		int minPos = 0, maxPos = 0;
 		
-		int pos = 1; // 0번째부터 시작
+		int pos = 0; // 0번째부터 시작?
 		int now = 0;
 		boolean wasNum = false; // 방금 전이 숫자였는지 여부
 		
