@@ -17,7 +17,12 @@ public class Main {
 		boolean wasNum = false; // 방금 전이 숫자였는지 여부
 		
 		// 마지막이 숫자로 끝날 경우 처리를 위해, 뒤에 문자 하나 붙임
-		for (char c : (q + "z").toCharArray()) {
+		char last = q.charAt(q.length() - 1);
+		if (last >= '0' && last <= '9') {
+			q += "z";
+		}
+		
+		for (char c : q.toCharArray()) {
 			if (c >= '0' && c <= '9') {
 				// 숫자일 경우
 				if (!wasNum) {
