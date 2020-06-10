@@ -27,7 +27,6 @@ public class Main {
 				// 숫자일 경우
 				if (!wasNum) {
 					wasNum = true;
-					
 				}
 				now = 10 * now + (c - '0');
 				
