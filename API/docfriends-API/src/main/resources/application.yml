@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      force-request: true
+      force-response: true
+
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/noitamina?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+#    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#    url: jdbc:log4jdbc:mysql://localhost:3306/noitamina?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: autoset
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+mybatis:
+  type-aliases-package: me.eastglow.vo
+  config-location: classpath:mybatis/config.xml
+  mapper-locations: classpath:mybatis/mapper/**.xml
+
+logging:
+  level:
+    jdbc:
+      sqlonly: OFF
+      resultset: OFF
+    test.docfriends.api: INFO
