@@ -46,7 +46,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`KEY`, `EMAIL`, `PASSWORD`, `NAME`, `IMAGE`, `FDATE`, `FIP`, `LUSER`, `LDATE`, `LIP`) VALUES
-(1, 'admin@test.com', '', '정동원 원장', '', '2020-06-13 12:16:54', '', 0, '2020-06-13 12:16:54', '');
+(1, 'admin@test.com', 'BpwtFZp/UIde8mCNU+8Iuvo3W5DFt7e7BICrLW+eFzuQKocewwerBLi1zDjSqMsx4k8HEdBxQhp/e3F7CCdJiQ==', '정동원 원장', '', '2020-06-13 12:16:54', '', 0, '2020-06-13 12:16:54', '');
 
 -- --------------------------------------------------------
 
