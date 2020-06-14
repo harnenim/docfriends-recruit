@@ -3,19 +3,19 @@ package test.docfriends.api.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.apache.commons.collections.map.CaseInsensitiveMap;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import test.docfriends.api.www.Session;
-import test.docfriends.api.service.AnswerService;
 import test.docfriends.api.service.QuestionService;
 import test.docfriends.api.spring.Params;
 import test.docfriends.api.vo.AnswerVo;
+import test.docfriends.api.vo.MemberVo;
 import test.docfriends.api.vo.QuestionVo;
 import test.docfriends.api.www.BaseController;
 
@@ -23,13 +23,18 @@ import test.docfriends.api.www.BaseController;
 @RestController
 public class QuestionController extends BaseController {
 
-	@Autowired protected QuestionService service;
-	@Autowired protected AnswerService answerService;
+	protected QuestionService service;
+	
+	@PostConstruct
+	public void init() {
+		// 편의상
+		service = questionService;
+	}
 	
 	private int pagesize = 10;
 	
 	@GetMapping("list")
-	public List<CaseInsensitiveMap> list(Session session, Params params
+	public List<CaseInsensitiveMap> list(Params params
 			, @RequestParam(required = false, defaultValue = "0") int page
 			) {
 		List<CaseInsensitiveMap> result = new ArrayList<>();
@@ -53,7 +58,10 @@ public class QuestionController extends BaseController {
 		List<AnswerVo> listOfQuestion = answerService.getListOfQuestion(question.getKey());
 		List<CaseInsensitiveMap> answerList = new ArrayList<>();
 		for (AnswerVo answer : listOfQuestion) {
-			answerList.add(answer.toMap());
+			CaseInsensitiveMap answerMap = answer.toMap();
+			MemberVo answerer = memberService.getByKey(answer.getFuser());
+			answerMap.put("answerer", answerer.toMap());
+			answerList.add(answerMap);
 		}
 		item.put("answers", answerList);
 		

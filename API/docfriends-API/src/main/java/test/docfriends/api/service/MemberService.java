@@ -32,5 +32,19 @@ public class MemberService {
 		}
 	}
 
-
+	public MemberVo login(String email, String pw, String ip) {
+		try {
+			MemberVo member = mapper.get(email);
+			if (member != null) {
+				boolean isValid = member.isValidPw(pw);
+				if (isValid) {
+					return member;
+				}
+				// 로그인 성공 여부 logging
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
