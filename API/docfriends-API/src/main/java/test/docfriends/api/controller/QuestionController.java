@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import test.docfriends.api.www.Session;
 import test.docfriends.api.service.AnswerService;
 import test.docfriends.api.service.QuestionService;
 import test.docfriends.api.spring.Params;
@@ -29,7 +28,7 @@ public class QuestionController extends BaseController {
 	private int pagesize = 10;
 	
 	@GetMapping("list")
-	public List<CaseInsensitiveMap> list(Session session, Params params
+	public List<CaseInsensitiveMap> list(Params params
 			, @RequestParam(required = false, defaultValue = "0") int page
 			) {
 		List<CaseInsensitiveMap> result = new ArrayList<>();
