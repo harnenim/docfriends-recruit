@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import test.docfriends.api.service.AnswerService;
+import test.docfriends.api.service.MemberService;
 import test.docfriends.api.service.QuestionService;
 import test.docfriends.api.spring.Params;
 import test.docfriends.api.vo.AnswerVo;
+import test.docfriends.api.vo.MemberVo;
 import test.docfriends.api.vo.QuestionVo;
 import test.docfriends.api.www.BaseController;
 
@@ -24,6 +26,7 @@ public class QuestionController extends BaseController {
 
 	@Autowired protected QuestionService service;
 	@Autowired protected AnswerService answerService;
+	@Autowired protected MemberService memberService;
 	
 	private int pagesize = 10;
 	
@@ -52,7 +55,10 @@ public class QuestionController extends BaseController {
 		List<AnswerVo> listOfQuestion = answerService.getListOfQuestion(question.getKey());
 		List<CaseInsensitiveMap> answerList = new ArrayList<>();
 		for (AnswerVo answer : listOfQuestion) {
-			answerList.add(answer.toMap());
+			CaseInsensitiveMap answerMap = answer.toMap();
+			MemberVo answerer = memberService.getByKey(answer.getFuser());
+			answerMap.put("answerer", answerer.toMap());
+			answerList.add(answerMap);
 		}
 		item.put("answers", answerList);
 		
