@@ -1,8 +1,9 @@
 import React from 'react';
 
+import JSEncrypt from 'node-jsencrypt';
 import CryptoJS from 'crypto-js';
 
-import Common from '../Common';
+import Api from '../Api';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -16,17 +17,22 @@ class LoginForm extends React.Component {
   submitLogin(login) {
     return (e) => {
       e.preventDefault();
-      let id = this.els.id.current.value;
+      let email = this.els.email.current.value;
       let pw = this.els.pw.current.value;
+      this.login(email, pw);
     };
   }
 
-  login(id, pw) {
-    this.runAfterGetEncryptKey((c, result, encrypt) => {
-      let sha256 = CryptoJS.SHA256(result.salt1 + pw + result.salt2).toString(CryptoJS.enc.Base64);
-      pw = encrypt.encrypt(sha256);
-
-      //   Common.post('/member/login', { id: id, pw: pw }).then((result) => {});
+  login(email, pw) {
+    pw = Api.SHA(pw).toString(CryptoJS.enc.Base64);
+    let data = new FormData();
+    data.append('email', email);
+    data.append('pw', pw);
+    Api.post('/member/login', data).then((result) => {
+      console.log(result);
+      Api.afterPost(result.data, (data) => {
+        alert('success');
+      });
     });
   }
 

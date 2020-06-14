@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Common from '../../Common';
+import Api from '../../Api';
 
 class QuestionView extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class QuestionView extends React.Component {
 
   getItem() {
     const { itemKey } = this.props;
-    Common.get(`/question/item/${itemKey}`).then((resp) => {
+    Api.get(`/question/item/${itemKey}`).then((resp) => {
       this.setState({ item: resp.data });
     });
   }
@@ -33,7 +33,7 @@ class QuestionView extends React.Component {
         </div>
         <div>
           <div>{item.title}</div>
-          <div>{Common.unixTimeToDate(item.fdate)}</div>
+          <div>{Api.unixTimeToDate(item.fdate)}</div>
           <div>{item.content}</div>
           <div>
             <Link to={`/tag/${item.tag}`}>{item.tag}</Link>
@@ -45,7 +45,7 @@ class QuestionView extends React.Component {
                 return (
                   <div>
                     <div>{answer.answerer.name}님의 답변</div>
-                    <div>{Common.unixTimeToDate(answer.fdate)}</div>
+                    <div>{Api.unixTimeToDate(answer.fdate)}</div>
                     <div>{answer.content}</div>
                   </div>
                 );

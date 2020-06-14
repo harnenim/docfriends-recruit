@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Common from '../../Common';
+import Api from '../../Api';
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class QuestionList extends React.Component {
   }
 
   getList(page) {
-    Common.get(`/question/list?page=${page}`).then((resp) => {
+    Api.get(`/question/list?page=${page}`).then((resp) => {
       this.setState({ list: resp.data });
     });
   }
@@ -37,7 +37,7 @@ class QuestionList extends React.Component {
                 <div className="item-tag">{item.tag}</div>
                 <div className="item-content">{item.content}</div>
                 <div className="item-answer">{item.answercount}</div>
-                <div className="item-date">{Common.unixTimeToDate(item.fdate)}</div>
+                <div className="item-date">{Api.unixTimeToDate(item.fdate)}</div>
               </div>
             </Link>
           ))}
