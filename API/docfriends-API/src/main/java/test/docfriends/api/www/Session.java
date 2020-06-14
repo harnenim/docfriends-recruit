@@ -6,7 +6,6 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import test.docfriends.encrypt.RSAUtil;
 import test.docfriends.api.vo.MemberVo;
 
 /**
@@ -27,10 +26,6 @@ public class Session {
 	private MemberVo userInfo = null;
 	private CaseInsensitiveMap map = new CaseInsensitiveMap();
 	
-	private RSAUtil rsa = null;
-	private int rsaRecallCount = 0;
-	private Thread rsaClearer = null;
-	
 	public MemberVo getUserInfo() {
 		return userInfo;
 	}
@@ -43,28 +38,6 @@ public class Session {
 	}
 	public void put(String key, Object value) {
 		map.put(key, value);
-	}
-	
-	public RSAUtil getRsa() {
-		return rsa;
-	}
-	public void setRsa(RSAUtil rsa) {
-		this.rsa = rsa;
-	}
-	public int getRsaRecallCount() {
-		return rsaRecallCount;
-	}
-	public int setRsaRecallCount(int rsaRecallCount) {
-		return this.rsaRecallCount = rsaRecallCount;
-	}
-	public int addRsaRecallCount() {
-		return ++this.rsaRecallCount;
-	}
-	public Thread getRsaClearer() {
-		return rsaClearer;
-	}
-	public void setRsaClearer(Thread rsaClearer) {
-		this.rsaClearer = rsaClearer;
 	}
 	
 }

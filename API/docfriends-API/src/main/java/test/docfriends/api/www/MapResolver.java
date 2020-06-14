@@ -43,7 +43,7 @@ public class MapResolver implements HandlerMethodArgumentResolver, Serializable 
 		while (iterator.hasNext()) {
 			String key = (String) iterator.next();
 			String[] values = webRequest.getParameterValues(key);
-			if (values!=null) {
+			if (values != null) {
 				parameters.put(key, (values.length > 1) ? values : values[0]);
 			}
 		}

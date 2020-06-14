@@ -3,6 +3,7 @@ package test.docfriends.api.vo;
 import org.apache.commons.collections.map.CaseInsensitiveMap;
 
 import lombok.Data;
+import test.docfriends.encrypt.SHAUtil;
 
 public @Data class MemberVo {
 
@@ -16,6 +17,13 @@ public @Data class MemberVo {
 	private long   luser;
 	private long   ldate;
 	private String lip  ;
+	
+	public boolean isValidPw(String pw) {
+		System.out.println("isValidPw");
+		String shaPw = SHAUtil.encodeBase64(pw, "docfriends");
+		System.out.println(shaPw);
+		return this.password.equals(shaPw);
+	}
 	
 	public CaseInsensitiveMap toMap() {
 		CaseInsensitiveMap map = new CaseInsensitiveMap();
