@@ -15,10 +15,10 @@ spring:
     livereload:
       enabled: true
   datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/docfriends?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
-#    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-#    url: jdbc:log4jdbc:mysql://localhost:3306/docfriends?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+#    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/docfriends?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://localhost:3306/docfriends?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
     username: root
     password: autoset
   servlet:

@@ -17,7 +17,7 @@ import test.docfriends.api.vo.MemberVo;
  * 사용자 세션
  * </pre>
  *
- * @author harne 
+ * @author 송규호 
  * @date 2019. 4. 9.
  */
 @Component

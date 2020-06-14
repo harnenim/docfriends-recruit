@@ -1,6 +1,6 @@
 package test.docfriends.api.vo;
 
-import java.util.Map;
+import org.apache.commons.collections.map.CaseInsensitiveMap;
 
 public class AnswerVo extends Vo {
 
@@ -8,8 +8,8 @@ public class AnswerVo extends Vo {
 	private String content;
 	
 	@Override
-	public Map<String, Object> toMap() {
-		Map<String, Object> map = super.toMap();
+	public CaseInsensitiveMap toMap() {
+		CaseInsensitiveMap map = super.toMap();
 		map.put("question", question);
 		map.put("content", content);
 		return map;

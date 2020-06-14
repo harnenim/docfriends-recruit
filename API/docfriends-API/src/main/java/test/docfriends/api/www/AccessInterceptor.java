@@ -4,17 +4,15 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import test.docfriends.api.vo.MemberVo;
-
 /**
  * 
- * @author harne
+ * @author 송규호
  *
  */
 public class AccessInterceptor implements HandlerInterceptor {
@@ -29,10 +27,10 @@ public class AccessInterceptor implements HandlerInterceptor {
 	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		HttpSession httpSession = request.getSession();
+//		HttpSession httpSession = request.getSession();
 		
-		String reqUri = request.getRequestURI();
-		Session session = (Session) httpSession.getAttribute("session");
+//		String reqUri = request.getRequestURI();
+//		Session session = (Session) httpSession.getAttribute("session");
 		
 		return true;
 	}

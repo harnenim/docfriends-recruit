@@ -10,6 +10,6 @@ import test.docfriends.api.vo.QuestionVo;
 public interface QuestionMapper {
 
 	QuestionVo get(long key) throws Exception;
-	List<QuestionVo> getList(int pagestart, int pagesize) throws Exception;
+	List<QuestionVo> getList(int pageStart, int pageSize) throws Exception;
 	
 }

@@ -22,7 +22,7 @@ import test.docfriends.api.spring.Params;
  * Please write a description. 
  * </pre>
  *
- * @author harne 
+ * @author 송규호 
  * @date 2019. 4. 12.
  */
 @Component

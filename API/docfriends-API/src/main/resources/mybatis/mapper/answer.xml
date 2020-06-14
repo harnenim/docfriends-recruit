@@ -4,14 +4,18 @@
 <mapper namespace="test.docfriends.api.mapper.AnswerMapper">
 
 	<select id="get" resultType="answer">
-		SELECT *
+		SELECT `KEY`, `QUESTION`, `CONTENT`
+		     , `FUSER`, UNIX_TIMESTAMP(FDATE) FDATE, `FIP`
+		     , `LUSER`, UNIX_TIMESTAMP(LDATE) LDATE, `LIP`
 		  FROM answer
-		 WHERE `KEY` = #{KEY}
+		 WHERE `KEY` = #{key}
 	</select>
 	<select id="getListOfQuestion" resultType="answer">
-		SELECT *
+		SELECT `KEY`, `QUESTION`, `CONTENT`
+		     , `FUSER`, UNIX_TIMESTAMP(FDATE) FDATE, `FIP`
+		     , `LUSER`, UNIX_TIMESTAMP(LDATE) LDATE, `LIP`
 		  FROM answer
-		 WHERE `QUESTION` = #{QUESTION}
+		 WHERE `QUESTION` = #{questionKey}
 		 ORDER BY `KEY` ASC
 	</select>
 

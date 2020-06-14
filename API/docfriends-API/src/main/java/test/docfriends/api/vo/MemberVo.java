@@ -1,7 +1,5 @@
 package test.docfriends.api.vo;
 
-import java.util.Map;
-
 import org.apache.commons.collections.map.CaseInsensitiveMap;
 
 import lombok.Data;
@@ -19,7 +17,7 @@ public @Data class MemberVo {
 	private long   ldate;
 	private String lip  ;
 	
-	public Map<String, Object> toMap() {
+	public CaseInsensitiveMap toMap() {
 		CaseInsensitiveMap map = new CaseInsensitiveMap();
 		map.put("key", key);
 		map.put("email", email);

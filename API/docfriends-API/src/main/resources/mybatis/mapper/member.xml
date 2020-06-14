@@ -4,14 +4,20 @@
 <mapper namespace="test.docfriends.api.mapper.MemberMapper">
 
 	<select id="get" resultType="member">
-		SELECT *
+		SELECT `KEY`, `EMAIL`, `PASSWORD`, `NAME`, `IMAGE`
+		     , UNIX_TIMESTAMP(FDATE) FDATE, `FIP`
+		     , `LUSER`
+		     , UNIX_TIMESTAMP(LDATE) LDATE, `LIP`
 		  FROM member
-		 WHERE `EMAIL` = #{EMAIL}
+		 WHERE `EMAIL` = #{email}
 	</select>
 	<select id="getByKey" resultType="member">
-		SELECT *
+		SELECT `KEY`, `EMAIL`, `PASSWORD`, `NAME`, `IMAGE`
+		     , UNIX_TIMESTAMP(FDATE) FDATE, `FIP`
+		     , `LUSER`
+		     , UNIX_TIMESTAMP(LDATE) LDATE, `LIP`
 		  FROM member
-		 WHERE `KEY` = #{KEY}
+		 WHERE `KEY` = #{key}
 	</select>
 
 

@@ -10,6 +10,6 @@ import test.docfriends.api.vo.AnswerVo;
 public interface AnswerMapper {
 
 	AnswerVo get(long key) throws Exception;
-	List<AnswerVo> getListOfQuestion(long question) throws Exception;
+	List<AnswerVo> getListOfQuestion(long questionKey) throws Exception;
 	
 }

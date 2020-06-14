@@ -15,7 +15,7 @@ import org.apache.commons.collections.map.CaseInsensitiveMap;
  * SQL Map 
  * </pre>
  *
- * @author harne 
+ * @author 송규호 
  * @date 2019. 4. 9.
  */
 public class Params { // implements Map<String, Object> {

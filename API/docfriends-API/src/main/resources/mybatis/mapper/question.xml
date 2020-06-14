@@ -4,15 +4,21 @@
 <mapper namespace="test.docfriends.api.mapper.QuestionMapper">
 
 	<select id="get" resultType="question">
-		SELECT *
+		SELECT `KEY`, `TITLE`, `CONTENT`, `TAG`, `SOURCE`
+		     , `FUSER`, UNIX_TIMESTAMP(FDATE) FDATE, `FIP`
+		     , `LUSER`, UNIX_TIMESTAMP(LDATE) LDATE, `LIP`
+		     , `ANSWER_COUNT`
 		  FROM question
-		 WHERE `KEY` = #{KEY}
+		 WHERE `KEY` = #{key}
 	</select>
 	<select id="getList" resultType="question">
-		SELECT *
+		SELECT `KEY`, `TITLE`, `CONTENT`, `TAG`, `SOURCE`
+		     , `FUSER`, UNIX_TIMESTAMP(FDATE) FDATE, `FIP`
+		     , `LUSER`, UNIX_TIMESTAMP(LDATE) LDATE, `LIP`
+		     , `ANSWER_COUNT`
 		  FROM question
 		 ORDER BY `KEY` DESC
-		 LIMIT #{PAGESTART}, #{PAGESIZE}
+		 LIMIT #{pageStart}, #{pageSize}
 	</select>
 
 </mapper>
