@@ -9,6 +9,9 @@
 		<setting name="defaultStatementTimeout" value="30" />
 	</settings>
 	<typeAliases>
-		<typeAlias alias="map"    type="java.util.Map" />
+		<typeAlias alias="map"      type="java.util.Map" />
+		<typeAlias alias="member"   type="test.docfriends.api.vo.MemberVo"   />
+		<typeAlias alias="question" type="test.docfriends.api.vo.QuestionVo" />
+		<typeAlias alias="answer"   type="test.docfriends.api.vo.AnswerVo"   />
 	</typeAliases>
 </configuration>

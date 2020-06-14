@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.docfriends.api.mapper.QuestionMapper">
+
+	<select id="get" resultType="question">
+		SELECT *
+		  FROM question
+		 WHERE `KEY` = #{KEY}
+	</select>
+	<select id="getList" resultType="question">
+		SELECT *
+		  FROM question
+		 ORDER BY `KEY` DESC
+		 LIMIT #{PAGESTART}, #{PAGESIZE}
+	</select>
+
+</mapper>

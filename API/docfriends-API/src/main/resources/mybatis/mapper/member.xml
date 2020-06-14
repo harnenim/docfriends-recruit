@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.docfriends.api.mapper.MemberMapper">
+
+	<select id="get" resultType="member">
+		SELECT *
+		  FROM member
+		 WHERE `EMAIL` = #{EMAIL}
+	</select>
+	<select id="getByKey" resultType="member">
+		SELECT *
+		  FROM member
+		 WHERE `KEY` = #{KEY}
+	</select>
+
+
+</mapper>
