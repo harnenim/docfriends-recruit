@@ -2,7 +2,7 @@ import React from 'react';
 
 import CryptoJS from 'crypto-js';
 
-import Common from '../../Common';
+import Common from '../Common';
 
 class LoginForm extends React.Component {
   constructor(props) {
