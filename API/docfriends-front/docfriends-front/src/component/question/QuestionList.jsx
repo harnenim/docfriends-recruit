@@ -26,7 +26,7 @@ class QuestionList extends React.Component {
     const { list } = this.state;
 
     return (
-      <>
+      <div className="question-list">
         <div className="header">
           <button id="btnFind">🔍</button>
           <div className="title">doctalk</div>
@@ -45,7 +45,7 @@ class QuestionList extends React.Component {
             </Link>
           ))}
         </div>
-      </>
+      </div>
     );
   }
 }

@@ -40,7 +40,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="login-form">
         <div className="header">
           <div>
             <button
@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
             </div>
           </form>
         </div>
-      </>
+      </div>
     );
   }
 }
