@@ -30,32 +30,59 @@ class QuestionView extends React.Component {
       <div className="question-view">
         <div className="header">
           <div>
-            <button id="btnBack">←</button>
+            <button id="btnBack"></button>
             <div className="title">상담 내용</div>
-            <button id="btnShare">↑</button>
-            <button id="btnMenu">:</button>
+            <button id="btnShare"></button>
+            <button id="btnMenu"></button>
           </div>
         </div>
         <div className="body">
-          <div>{item.title}</div>
-          <div>{Api.unixTimeToDate(item.fdate)}</div>
-          <div>{item.content}</div>
-          <div>
-            <Link to={`/tag/${item.tag}`}>{item.tag}</Link>
+          <div className="question-item">
+            <div className="question-header">
+              <div className="question-icon"></div>
+              <div className="question-title-date">
+                <div className="question-title">{item.title}</div>
+                <div className="question-date">상담일자: {Api.unixTimeToDate(item.fdate)}</div>
+              </div>
+            </div>
+            <div className="question-content">
+              {item.content
+                ? item.content.split('\n').map((line) => (
+                    <span>
+                      {line}
+                      <br />
+                    </span>
+                  ))
+                : ''}
+            </div>
+            <div className="question-tag">
+              {item.tag
+                ? item.tag.split(',').map((tag) => {
+                    return (
+                      <>
+                        <Link to={`/tag/${tag}`}>#{tag}</Link>{' '}
+                      </>
+                    );
+                  })
+                : null}
+            </div>
+            {item.source ? (
+              <div className="question-source">
+                <span>출처</span> <Link to={item.source}>{item.source}</Link>
+              </div>
+            ) : null}
           </div>
-          {item.source ? <div>{item.source}</div> : null}
-          {item.answers
-            ? item.answers.map((answer) => {
-                console.log(answer);
-                return (
-                  <div>
+          <div className="answer-list">
+            {item.answers
+              ? item.answers.map((answer, index) => (
+                  <div className="answer-item" key={`answer-item-${index}`}>
                     <div>{answer.answerer.name}님의 답변</div>
                     <div>{Api.unixTimeToDate(answer.fdate)}</div>
                     <div>{answer.content}</div>
                   </div>
-                );
-              })
-            : null}
+                ))
+              : null}
+          </div>
         </div>
       </div>
     );
