@@ -28,18 +28,31 @@ class QuestionList extends React.Component {
     return (
       <div className="question-list">
         <div className="header">
-          <button id="btnFind">🔍</button>
-          <div className="title">doctalk</div>
-          <button id="btnNotice">🔔</button>
+          <div>
+            <button id="btnSearch"></button>
+            <div className="title"></div>
+            <button id="btnNotice"></button>
+          </div>
         </div>
-        <div>
+        <div className="body">
           {list.map((item) => (
             <Link to={`/question/${item.key}`}>
               <div className="item" key={`item-${item.key}`}>
                 <div className="item-title">{item.title}</div>
-                <div className="item-tag">{item.tag}</div>
+                <div className="item-tag">
+                  {item.tag
+                    .split(',')
+                    .map((tag) => {
+                      return `#${tag}`;
+                    })
+                    .join(', ')}
+                </div>
                 <div className="item-content">{item.content}</div>
-                <div className="item-answer">{item.answercount}</div>
+                {item.answercount ? (
+                  <div key={`item-answer-${item.key}`} className="item-answer">
+                    답변 {item.answercount}
+                  </div>
+                ) : null}
                 <div className="item-date">{Api.unixTimeToDate(item.fdate)}</div>
               </div>
             </Link>

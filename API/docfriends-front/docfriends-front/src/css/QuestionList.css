@@ -1,3 +1,83 @@
+.question-list {
+  width: 100%;
+  height: 100%;
+}
+
 .question-list .header {
-  background: #12bb00;
+  background: #56b835;
+}
+.question-list .header .title {
+  background-image: url('/img/doctalk.png');
+  background-size: 100px 40px;
+  background-repeat: no-repeat;
+  left: calc(50% - 50px);
+  right: calc(50% - 50px);
+}
+
+.question-list #btnSearch {
+  left: 20px;
+  width: 40px;
+  background-image: url('/img/btnSearch.png');
+  background-size: cover;
+}
+.question-list #btnNotice {
+  right: 20px;
+  width: 40px;
+  background-image: url('/img/btnNotice.png');
+  background-size: cover;
+}
+
+.question-list .body {
+  background: #eee;
+  min-height: 100%;
+}
+
+.question-list .item {
+  height: 160px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 8px;
+  position: relative;
+}
+.question-list .item > * {
+  position: absolute;
+}
+.question-list .item-title {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  width: calc(100% - 20px);
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+.question-list .item-tag {
+  top: 36px;
+  left: 10px;
+  color: #6e778b;
+}
+.question-list .item-content {
+  top: 62px;
+  left: 10px;
+  right: 10px;
+  width: calc(100% - 20px);
+  height: 60px;
+  color: #808080;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.question-list .item-answer {
+  bottom: 6px;
+  left: 10px;
+  color: #4fa930;
+}
+.question-list .item-date {
+  bottom: 6px;
+  right: 6px;
+  color: #aaaaaa;
 }
