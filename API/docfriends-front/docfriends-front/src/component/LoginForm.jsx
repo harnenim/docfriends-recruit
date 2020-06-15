@@ -1,9 +1,11 @@
 import React from 'react';
 
-import JSEncrypt from 'node-jsencrypt';
 import CryptoJS from 'crypto-js';
 
 import Api from '../Api';
+
+import '../css/common.css';
+import '../css/LoginForm.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -40,19 +42,37 @@ class LoginForm extends React.Component {
     return (
       <>
         <div className="header">
-          <button id="btnBack">←</button>
-          <div className="title">로그인</div>
-          <button id="btnJoin">회원가입</button>
+          <div>
+            <button
+              id="btnBack"
+              onClick={() => {
+                window.history.back();
+              }}
+            ></button>
+            <div className="title">로그인</div>
+            <button id="btnJoin">회원가입</button>
+          </div>
         </div>
-        <div>
+        <div className="body">
           <form onSubmit={this.submitLogin().bind(this)}>
             <div>
               <input type="email" placeholder="이메일 주소를 입력해 주세요" ref={this.els.email} />
               <input type="password" placeholder="비밀번호를 입력해 주세요" ref={this.els.pw} />
-              <a href="#">로그인에 문제가 있으세요?</a>
+              <button id="btnLoginProblem" type="button">
+                로그인에 문제가 있으세요?
+              </button>
+            </div>
+            <div className="sample">
+              테스트 계정
+              <br />
+              ID: admin@test.com
+              <br />
+              PW: test
             </div>
             <div>
-              <button type="submit">로그인</button>
+              <button type="submit" id="btnLogin">
+                로그인
+              </button>
             </div>
           </form>
         </div>

@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Api from '../../Api';
 
+import '../../css/common.css';
+import '../../css/QuestionList.css';
+
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
