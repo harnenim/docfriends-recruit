@@ -1,0 +1,8 @@
+.question-view {
+  width: 100%;
+  height: 100%;
+}
+
+.question-view .header {
+  background: #56b835;
+}

@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Api from '../../Api';
 
+import '../../css/common.css';
+import '../../css/QuestionView.css';
+
 class QuestionView extends React.Component {
   constructor(props) {
     super(props);
@@ -24,14 +27,16 @@ class QuestionView extends React.Component {
     const { item } = this.state;
 
     return (
-      <>
+      <div className="question-view">
         <div className="header">
-          <button id="btnBack">←</button>
-          <div className="title">상담 내용</div>
-          <button id="btnShare">↑</button>
-          <button id="btnMenu">:</button>
+          <div>
+            <button id="btnBack">←</button>
+            <div className="title">상담 내용</div>
+            <button id="btnShare">↑</button>
+            <button id="btnMenu">:</button>
+          </div>
         </div>
-        <div>
+        <div className="body">
           <div>{item.title}</div>
           <div>{Api.unixTimeToDate(item.fdate)}</div>
           <div>{item.content}</div>
@@ -52,7 +57,7 @@ class QuestionView extends React.Component {
               })
             : null}
         </div>
-      </>
+      </div>
     );
   }
 }
