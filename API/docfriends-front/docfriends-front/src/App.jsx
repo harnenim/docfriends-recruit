@@ -36,9 +36,11 @@ function App() {
           <LoginForm />
         </Route>
         <Route path="*">
-          <Link to="/login">로그인</Link>
-          <br />
-          <Link to="/question">질문</Link>
+          <div className="index">
+            <Link to="/login">로그인</Link>
+            <br />
+            <Link to="/question">질문</Link>
+          </div>
         </Route>
       </Switch>
     </Router>
