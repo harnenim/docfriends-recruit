@@ -81,6 +81,10 @@
   color: #667086;
   text-decoration: none;
   font-size: 12px;
+  margin-right: 4px;
+}
+.question-tag > a:not(:last-child)::after {
+  content: ', ';
 }
 .question-source {
   margin: 10px;
@@ -162,7 +166,7 @@
 
 .answer-content {
   clear: both;
-  margin: 10px 10px 30px;
-  padding-top: 10px;
+  margin: 10px;
+  padding: 10px 0 10px;
   font-size: 14px;
 }

@@ -48,6 +48,9 @@
   color: #fff;
   font-size: 20px;
 }
+.login-form #btnLogin.enabled {
+  background: #4fa930;
+}
 
 .login-form .sample {
   margin: 50px;

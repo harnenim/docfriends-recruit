@@ -54,8 +54,8 @@ class QuestionView extends React.Component {
             </div>
             <div className="question-content">
               {item && item.content
-                ? item.content.split('\n').map((line) => (
-                    <span>
+                ? item.content.split('\n').map((line, index) => (
+                    <span key={`question-content-line-${index}`}>
                       {line}
                       <br />
                     </span>
@@ -64,18 +64,16 @@ class QuestionView extends React.Component {
             </div>
             <div className="question-tag">
               {item && item.tag
-                ? item.tag.split(',').map((tag) => {
-                    return (
-                      <>
-                        <Link to={`/tag/${tag}`}>#{tag}</Link>{' '}
-                      </>
-                    );
-                  })
+                ? item.tag.split(',').map((tag, index) => (
+                    <Link to={`/tag/${tag}`} key={`question-tag-${index}`}>
+                      #{tag}
+                    </Link>
+                  ))
                 : null}
             </div>
             {item.source ? (
               <div className="question-source">
-                <span>출처</span> <Link to={item.source}>{item.source}</Link>
+                <span>출처</span> <a href={item.source}>{item.source}</a>
               </div>
             ) : null}
           </div>
@@ -100,8 +98,8 @@ class QuestionView extends React.Component {
                       </div>
                     </div>
                     <div className="answer-content">
-                      {answer.content.split('\n').map((line) => (
-                        <span>
+                      {answer.content.split('\n').map((line, index2) => (
+                        <span key={`answer-item-${index}-content-line-${index2}`}>
                           {line}
                           <br />
                         </span>
