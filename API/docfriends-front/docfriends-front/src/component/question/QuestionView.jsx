@@ -30,7 +30,12 @@ class QuestionView extends React.Component {
       <div className="question-view">
         <div className="header">
           <div>
-            <button id="btnBack"></button>
+            <button
+              id="btnBack"
+              onClick={() => {
+                window.history.back();
+              }}
+            ></button>
             <div className="title">상담 내용</div>
             <button id="btnShare"></button>
             <button id="btnMenu"></button>
@@ -42,11 +47,13 @@ class QuestionView extends React.Component {
               <div className="question-icon"></div>
               <div className="question-title-date">
                 <div className="question-title">{item.title}</div>
-                <div className="question-date">상담일자: {Api.unixTimeToDate(item.fdate)}</div>
+                <div className="question-date">
+                  상담일자: {item && item.fdate ? Api.unixTimeToDate(item.fdate) : ''}
+                </div>
               </div>
             </div>
             <div className="question-content">
-              {item.content
+              {item && item.content
                 ? item.content.split('\n').map((line) => (
                     <span>
                       {line}
@@ -56,7 +63,7 @@ class QuestionView extends React.Component {
                 : ''}
             </div>
             <div className="question-tag">
-              {item.tag
+              {item && item.tag
                 ? item.tag.split(',').map((tag) => {
                     return (
                       <>
@@ -76,9 +83,30 @@ class QuestionView extends React.Component {
             {item.answers
               ? item.answers.map((answer, index) => (
                   <div className="answer-item" key={`answer-item-${index}`}>
-                    <div>{answer.answerer.name}님의 답변</div>
-                    <div>{Api.unixTimeToDate(answer.fdate)}</div>
-                    <div>{answer.content}</div>
+                    <div className="answer-header">
+                      <div
+                        className="answer-profile"
+                        style={{ backgroundImage: `url(${answer.answerer.image})` }}
+                      >
+                        <div className="answer-profile-valid">
+                          <div className="answer-profile-valid-inner"></div>
+                        </div>
+                      </div>
+                      <div className="answer-title-date">
+                        <div className="answer-title">{answer.answerer.name}님의 답변</div>
+                        <div className="answer-date">
+                          답변일자: {Api.unixTimeToDate(answer.fdate)}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="answer-content">
+                      {answer.content.split('\n').map((line) => (
+                        <span>
+                          {line}
+                          <br />
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ))
               : null}

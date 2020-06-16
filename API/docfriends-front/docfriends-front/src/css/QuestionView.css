@@ -106,3 +106,63 @@
 .answer-item {
   background: #fff;
 }
+
+.question-item {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.answer-header {
+  margin: 0 10px;
+  padding-top: 10px;
+}
+.answer-header > * {
+  float: left;
+}
+.answer-profile {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background-image: url('/img/iconQ.png');
+  background-size: cover;
+  position: relative;
+}
+.answer-profile-valid {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right: 0;
+  bottom: 0;
+  border: 0.1px solid #56b835;
+  border-radius: 12px;
+}
+.answer-profile-valid-inner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  right: 1px;
+  bottom: 1px;
+  background: #56b835;
+  border-radius: 4px;
+}
+.answer-title-date {
+  width: calc(100% - 50px);
+}
+.answer-title {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 26px;
+}
+.answer-date {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.answer-content {
+  clear: both;
+  margin: 10px 10px 30px;
+  padding-top: 10px;
+  font-size: 14px;
+}
