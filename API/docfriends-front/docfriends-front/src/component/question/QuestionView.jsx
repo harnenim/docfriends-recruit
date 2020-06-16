@@ -96,6 +96,7 @@ class QuestionView extends React.Component {
                           답변일자: {Api.unixTimeToDate(answer.fdate)}
                         </div>
                       </div>
+                      <button className="btn-answer-menu"></button>
                     </div>
                     <div className="answer-content">
                       {answer.content.split('\n').map((line, index2) => (
